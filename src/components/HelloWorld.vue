@@ -14,11 +14,11 @@ import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
 
 @Component
 export default class HelloWorld extends Vue {
-  @Prop({ default: `default prop value` }) message!: string;
+  @Prop({ default: `default prop value` }) public message!: string;
 
   @Emit('changeMessage')
-  emitToParent(n: number) {
-    console.log('emit from child to parent')
+  public emitToParent(n: number) {
+    console.log('emit from child to parent');
   }
 }
 </script>

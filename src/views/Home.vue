@@ -33,7 +33,7 @@ import { Vue, Component, Provide, Watch, Mixins } from 'vue-property-decorator';
 import {
   Getter,
   Action,
-} from 'vuex-class'
+} from 'vuex-class';
 import testMixin from '@/mixins/mixin'; // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 import { userInfo } from 'os';
@@ -43,36 +43,36 @@ import { userInfo } from 'os';
     HelloWorld,
   },
   mixins: [
-    testMixin
-  ]
+    testMixin,
+  ],
 })
 export default class Home extends Vue {
-  @Getter('storeMessage') storeMessage: any
-  @Action('setStoreMessage') setStoreMessage: any
-  @Provide() parentMessage: string = 'message from parent to child'
-  @Provide() componentData: number = 0
+  @Getter('storeMessage') public storeMessage: any;
+  @Action('setStoreMessage') public setStoreMessage: any;
+  @Provide() public parentMessage: string = 'message from parent to child';
+  @Provide() public componentData: number = 0;
 
-  get computedData (): string {
-    return `computed ${this.componentData}`
+  get computedData(): string {
+    return `computed ${this.componentData}`;
   }
 
   @Watch('componentData', {immediate: true})
-  watchComponentData(val: string, oldVal: string) {
-    console.log('watch val: ', val)
-    console.log('watch oldVal: ', oldVal)
+  public watchComponentData(val: string, oldVal: string) {
+    console.log('watch val: ', val);
+    console.log('watch oldVal: ', oldVal);
   }
 
-  mounted () {
-    console.log(`mounted`)
+  public mounted() {
+    console.log(`mounted`);
   }
 
-  componentMethod (): void {
-    this.componentData += 1
-    this.setStoreMessage('use action change store')
+  public componentMethod(): void {
+    this.componentData += 1;
+    this.setStoreMessage('use action change store');
   }
 
-  handleChangeMessage (): void {
-    this.parentMessage = 'message from parent emit'
+  public handleChangeMessage(): void {
+    this.parentMessage = 'message from parent emit';
   }
 }
 </script>

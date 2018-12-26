@@ -1,30 +1,30 @@
 export interface Message {
-  storeMessage: string
+  storeMessage: string;
 }
 
 const state: Message = {
-  storeMessage: 'store data'
-}
+  storeMessage: 'store data',
+};
 
 const getters = {
-  storeMessage: (state: any) => state.storeMessage
-}
+  storeMessage: (state: any) => state.storeMessage,
+};
 
 const actions = {
   setStoreMessage({ commit }, storeMessage: string) {
-    commit('SET_STORE_MESSAGE', storeMessage)
-  }
-}
+    commit('SET_STORE_MESSAGE', storeMessage);
+  },
+};
 
 const mutations = {
   SET_STORE_MESSAGE(state: any, storeMessage: string) {
-    state.storeMessage = storeMessage
-  }
-}
+    state.storeMessage = storeMessage;
+  },
+};
 
 export default {
   state,
   mutations,
   actions,
-  getters
-}
+  getters,
+};

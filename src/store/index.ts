@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Vuex, { Commit, Dispatch } from 'vuex'
+import Vuex, { Commit, Dispatch } from 'vuex';
 
 import message from '@/store/modules/message';
 
@@ -7,11 +7,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    message
-  }
+    message,
+  },
 });
 
 export interface ActionContextBasic {
-  commit: Commit,
-  dispatch: Dispatch
+  commit: Commit;
+  dispatch: Dispatch;
 }
