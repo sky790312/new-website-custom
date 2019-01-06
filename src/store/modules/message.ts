@@ -1,23 +1,27 @@
-export interface Message {
+import { RootState } from '@/store/types';
+import { Commit, GetterTree, ActionTree, MutationTree } from 'vuex';
+
+export interface MessageState {
   storeMessage: string;
 }
 
-const state: Message = {
+const state: MessageState = {
   storeMessage: 'store data',
 };
 
-const getters = {
-  storeMessage: (state: any) => state.storeMessage,
+const getters: GetterTree<MessageState, RootState> = {
+  storeMessage: (state: MessageState) => state.storeMessage,
 };
 
-const actions = {
-  setStoreMessage({ commit }, storeMessage: string) {
-    commit('SET_STORE_MESSAGE', storeMessage);
+
+const actions: ActionTree<MessageState, RootState> = {
+  setStoreMessage(context: { commit: Commit }, storeMessage: MessageState) {
+    context.commit('SET_STORE_MESSAGE', storeMessage);
   },
 };
 
-const mutations = {
-  SET_STORE_MESSAGE(state: any, storeMessage: string) {
+const mutations: MutationTree<MessageState> = {
+  SET_STORE_MESSAGE(state: MessageState, storeMessage: string) {
     state.storeMessage = storeMessage;
   },
 };

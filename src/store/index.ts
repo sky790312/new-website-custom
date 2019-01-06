@@ -1,17 +1,21 @@
 import Vue from 'vue';
-import Vuex, { Commit, Dispatch } from 'vuex';
+import Vuex, { StoreOptions } from 'vuex';
 
 import message from '@/store/modules/message';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+interface RootState {
+  version: string;
+}
+
+const store: StoreOptions<RootState> = {
+  state: {
+    version: 'v1.0.0',
+  },
   modules: {
     message,
   },
-});
+};
 
-export interface ActionContextBasic {
-  commit: Commit;
-  dispatch: Dispatch;
-}
+export default new Vuex.Store<RootState>(store);
